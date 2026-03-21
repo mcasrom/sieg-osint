@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://mcasrom.github.io/sieg-osint/sitemap.xml

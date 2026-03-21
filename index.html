@@ -3,18 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SIEG OSINT España — Inteligencia Narrativa y Análisis Político</title>
-<meta name="description" content="Sistema de Inteligencia y Evaluación Geopolítica. Análisis OSINT automatizado de política nacional española: narrativas, desinformación, sentimiento mediático y radar electoral 2026.">
-<meta name="keywords" content="OSINT España, análisis político España, desinformación España, radar narrativo, inteligencia mediática, fake news España, narrativas políticas, radar electoral 2026, análisis sentimiento medios, vigilancia mediática">
+
+<!-- Primary SEO -->
+<title>SIEG OSINT España — Inteligencia Narrativa y Análisis Político Automatizado</title>
+<meta name="description" content="Ecosistema OSINT de análisis político español. Vigilancia de narrativas, desinformación, sentimiento mediático y radar electoral 2026 en tiempo real. Automatizado 24/7 desde Madrid.">
+<meta name="keywords" content="OSINT España, análisis político España, desinformación España, fake news España, radar narrativo, inteligencia mediática, narrativas políticas España, radar electoral 2026, análisis sentimiento medios, vigilancia mediática automatizada, SIEG, política nacional España">
 <meta name="author" content="M. Castillo">
-<meta property="og:title" content="SIEG OSINT España — Inteligencia Narrativa">
-<meta property="og:description" content="Ecosistema OSINT de análisis político español. Narrativas, desinformación y radar electoral en tiempo real.">
-<meta property="og:url" content="https://mcasrom.github.io/sieg-osint">
+<meta name="robots" content="index, follow">
+<meta name="language" content="Spanish">
+<link rel="canonical" href="https://mcasrom.github.io/sieg-osint/">
+
+<!-- Open Graph / Facebook -->
 <meta property="og:type" content="website">
+<meta property="og:url" content="https://mcasrom.github.io/sieg-osint/">
+<meta property="og:title" content="SIEG OSINT España — Inteligencia Narrativa y Análisis Político">
+<meta property="og:description" content="Ecosistema OSINT de análisis político español. Narrativas, desinformación y radar electoral en tiempo real.">
+<meta property="og:image" content="https://mcasrom.github.io/sieg-osint/preview.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="es_ES">
+<meta property="og:site_name" content="SIEG OSINT España">
+
+<!-- Twitter Card -->
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="SIEG OSINT España">
-<meta name="twitter:description" content="Análisis OSINT automatizado de política nacional española">
-<link rel="canonical" href="https://mcasrom.github.io/sieg-osint">
+<meta name="twitter:url" content="https://mcasrom.github.io/sieg-osint/">
+<meta name="twitter:title" content="SIEG OSINT España — Inteligencia Narrativa">
+<meta name="twitter:description" content="Análisis OSINT automatizado de política nacional española. Narrativas, desinformación y radar electoral 2026.">
+<meta name="twitter:image" content="https://mcasrom.github.io/sieg-osint/preview.png">
+
+<!-- Favicon -->
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<link rel="shortcut icon" href="favicon.svg">
+
+<!-- Structured Data JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "SIEG OSINT España",
+  "url": "https://mcasrom.github.io/sieg-osint/",
+  "description": "Ecosistema OSINT de análisis político español. Vigilancia de narrativas, desinformación y radar electoral en tiempo real.",
+  "author": {
+    "@type": "Person",
+    "name": "M. Castillo",
+    "email": "mybloggingnotes@gmail.com"
+  },
+  "inLanguage": "es",
+  "keywords": "OSINT, España, análisis político, desinformación, narrativas, radar electoral",
+  "hasPart": [
+    {
+      "@type": "WebApplication",
+      "name": "Narrative Radar",
+      "url": "https://fake-news-narrative.streamlit.app",
+      "description": "Detección de bulos y narrativas coordinadas en medios españoles"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "SIEG Política Nacional",
+      "url": "https://politica-nacional-osint.streamlit.app",
+      "description": "Vigilancia narrativa y análisis de sentimiento mediático por partido político"
+    },
+    {
+      "@type": "WebApplication",
+      "name": "España Vota 2026",
+      "url": "https://sieg-radar-electoral.streamlit.app",
+      "description": "Radar electoral para las elecciones españolas 2026"
+    }
+  ]
+}
+</script>
+
 <style>
 :root {
   --green: #00ff41;
@@ -37,24 +95,17 @@ body {
   min-height: 100vh;
   overflow-x: hidden;
 }
-
-/* Scanline effect */
 body::before {
   content: '';
   position: fixed;
   top: 0; left: 0; right: 0; bottom: 0;
   background: repeating-linear-gradient(
-    0deg,
-    transparent,
-    transparent 2px,
-    rgba(0,255,65,0.015) 2px,
-    rgba(0,255,65,0.015) 4px
+    0deg, transparent, transparent 2px,
+    rgba(0,255,65,0.015) 2px, rgba(0,255,65,0.015) 4px
   );
   pointer-events: none;
   z-index: 1000;
 }
-
-/* Nav */
 nav {
   position: fixed;
   top: 0; left: 0; right: 0;
@@ -67,350 +118,77 @@ nav {
   z-index: 100;
   backdrop-filter: blur(4px);
 }
-.nav-logo {
-  font-size: 1.1rem;
-  font-weight: bold;
-  color: var(--green);
-  letter-spacing: 3px;
-  text-decoration: none;
-}
+.nav-logo { font-size: 1.1rem; font-weight: bold; color: var(--green); letter-spacing: 3px; text-decoration: none; }
 .nav-links { display: flex; gap: 24px; }
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.8rem;
-  letter-spacing: 1px;
-  transition: color 0.2s;
-}
+.nav-links a { color: var(--muted); text-decoration: none; font-size: 0.8rem; letter-spacing: 1px; transition: color 0.2s; }
 .nav-links a:hover { color: var(--green); }
-
-/* Hero */
 .hero {
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
   padding: 120px 40px 80px;
-  position: relative;
   max-width: 1200px;
   margin: 0 auto;
 }
-.hero-tag {
-  font-size: 0.75rem;
-  color: var(--muted);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 20px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.2s;
-}
+.hero-tag { font-size: 0.75rem; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 20px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.2s; }
 .hero-tag::before { content: '> '; color: var(--green); }
-
-.hero-title {
-  font-size: clamp(2.5rem, 6vw, 5rem);
-  font-weight: bold;
-  color: var(--green);
-  letter-spacing: 6px;
-  line-height: 1.1;
-  margin-bottom: 12px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.4s;
-}
-.hero-subtitle {
-  font-size: clamp(1rem, 2vw, 1.4rem);
-  color: var(--green-dim);
-  letter-spacing: 3px;
-  margin-bottom: 24px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.6s;
-}
-.hero-desc {
-  font-size: 0.9rem;
-  color: var(--muted);
-  max-width: 600px;
-  line-height: 1.8;
-  margin-bottom: 40px;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 0.8s;
-}
-.hero-terminal {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-radius: 6px;
-  padding: 20px 24px;
-  max-width: 600px;
-  font-size: 0.82rem;
-  color: var(--green-dim);
-  line-height: 2;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 1s;
-  margin-bottom: 40px;
-}
+.hero-title { font-size: clamp(2.5rem, 6vw, 5rem); font-weight: bold; color: var(--green); letter-spacing: 6px; line-height: 1.1; margin-bottom: 12px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.4s; }
+.hero-subtitle { font-size: clamp(1rem, 2vw, 1.4rem); color: var(--green-dim); letter-spacing: 3px; margin-bottom: 24px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.6s; }
+.hero-desc { font-size: 0.9rem; color: var(--muted); max-width: 600px; line-height: 1.8; margin-bottom: 40px; opacity: 0; animation: fadeUp 0.6s ease forwards 0.8s; }
+.hero-terminal { background: var(--bg2); border: 1px solid var(--border); border-radius: 6px; padding: 20px 24px; max-width: 600px; font-size: 0.82rem; color: var(--green-dim); line-height: 2; opacity: 0; animation: fadeUp 0.6s ease forwards 1s; margin-bottom: 40px; }
 .hero-terminal .prompt { color: var(--muted); }
 .hero-terminal .cmd { color: var(--green); }
 .hero-terminal .out { color: var(--green-dark); }
-.cursor {
-  display: inline-block;
-  width: 8px;
-  height: 14px;
-  background: var(--green);
-  animation: blink 1s step-end infinite;
-  vertical-align: middle;
-}
-
-.hero-cta {
-  display: flex;
-  gap: 16px;
-  flex-wrap: wrap;
-  opacity: 0;
-  animation: fadeUp 0.6s ease forwards 1.2s;
-}
-.btn {
-  padding: 12px 28px;
-  border: 1px solid var(--green);
-  color: var(--green);
-  text-decoration: none;
-  font-family: monospace;
-  font-size: 0.85rem;
-  letter-spacing: 2px;
-  transition: all 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-.btn::before {
-  content: '';
-  position: absolute;
-  top: 0; left: -100%;
-  width: 100%; height: 100%;
-  background: var(--green);
-  transition: left 0.2s;
-  z-index: -1;
-}
+.cursor { display: inline-block; width: 8px; height: 14px; background: var(--green); animation: blink 1s step-end infinite; vertical-align: middle; }
+.hero-cta { display: flex; gap: 16px; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.6s ease forwards 1.2s; }
+.btn { padding: 12px 28px; border: 1px solid var(--green); color: var(--green); text-decoration: none; font-family: monospace; font-size: 0.85rem; letter-spacing: 2px; transition: all 0.2s; position: relative; overflow: hidden; }
+.btn::before { content: ''; position: absolute; top: 0; left: -100%; width: 100%; height: 100%; background: var(--green); transition: left 0.2s; z-index: -1; }
 .btn:hover { color: var(--bg); }
 .btn:hover::before { left: 0; }
-.btn-secondary {
-  border-color: var(--muted);
-  color: var(--muted);
-}
+.btn-secondary { border-color: var(--muted); color: var(--muted); }
 .btn-secondary::before { background: var(--muted); }
 .btn-secondary:hover { color: var(--bg); }
-.btn-telegram {
-  border-color: #29b6f6;
-  color: #29b6f6;
-}
+.btn-telegram { border-color: #29b6f6; color: #29b6f6; }
 .btn-telegram::before { background: #29b6f6; }
 .btn-telegram:hover { color: var(--bg); }
-
-/* Stats bar */
-.stats {
-  background: var(--bg2);
-  border-top: 1px solid var(--border);
-  border-bottom: 1px solid var(--border);
-  padding: 20px 40px;
-  display: flex;
-  gap: 40px;
-  justify-content: center;
-  flex-wrap: wrap;
-}
+.stats { background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border); padding: 20px 40px; display: flex; gap: 40px; justify-content: center; flex-wrap: wrap; }
 .stat { text-align: center; }
-.stat-num {
-  font-size: 1.8rem;
-  font-weight: bold;
-  color: var(--green);
-  display: block;
-}
-.stat-label {
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 2px;
-  text-transform: uppercase;
-}
-
-/* Apps section */
-.section {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 80px 40px;
-}
-.section-header {
-  margin-bottom: 48px;
-}
-.section-tag {
-  font-size: 0.72rem;
-  color: var(--muted);
-  letter-spacing: 4px;
-  text-transform: uppercase;
-  margin-bottom: 12px;
-}
+.stat-num { font-size: 1.8rem; font-weight: bold; color: var(--green); display: block; }
+.stat-label { font-size: 0.72rem; color: var(--muted); letter-spacing: 2px; text-transform: uppercase; }
+.section { max-width: 1200px; margin: 0 auto; padding: 80px 40px; }
+.section-header { margin-bottom: 48px; }
+.section-tag { font-size: 0.72rem; color: var(--muted); letter-spacing: 4px; text-transform: uppercase; margin-bottom: 12px; }
 .section-tag::before { content: '// '; color: var(--green); }
-.section-title {
-  font-size: 1.8rem;
-  color: var(--green);
-  letter-spacing: 4px;
-}
-
-.apps-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-  gap: 24px;
-}
-.app-card {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  padding: 32px;
-  transition: border-color 0.2s, transform 0.2s;
-  position: relative;
-  overflow: hidden;
-}
-.app-card::before {
-  content: '';
-  position: absolute;
-  top: 0; left: 0;
-  width: 3px; height: 100%;
-  background: var(--green);
-  opacity: 0;
-  transition: opacity 0.2s;
-}
-.app-card:hover {
-  border-color: var(--green-faint);
-  transform: translateY(-2px);
-}
+.section-title { font-size: 1.8rem; color: var(--green); letter-spacing: 4px; }
+.apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 24px; }
+.app-card { background: var(--bg2); border: 1px solid var(--border); padding: 32px; transition: border-color 0.2s, transform 0.2s; position: relative; overflow: hidden; }
+.app-card::before { content: ''; position: absolute; top: 0; left: 0; width: 3px; height: 100%; background: var(--green); opacity: 0; transition: opacity 0.2s; }
+.app-card:hover { border-color: var(--green-faint); transform: translateY(-2px); }
 .app-card:hover::before { opacity: 1; }
-
-.app-icon {
-  font-size: 2rem;
-  margin-bottom: 16px;
-  display: block;
-}
-.app-name {
-  font-size: 1.1rem;
-  color: var(--green);
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-  font-weight: bold;
-}
-.app-tag {
-  display: inline-block;
-  font-size: 0.65rem;
-  color: var(--green-dark);
-  border: 1px solid var(--green-faint);
-  padding: 2px 8px;
-  letter-spacing: 2px;
-  margin-bottom: 16px;
-}
-.app-desc {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.8;
-  margin-bottom: 20px;
-}
-.app-features {
-  list-style: none;
-  margin-bottom: 24px;
-}
-.app-features li {
-  font-size: 0.78rem;
-  color: var(--green-dark);
-  padding: 3px 0;
-}
+.app-icon { font-size: 2rem; margin-bottom: 16px; display: block; }
+.app-name { font-size: 1.1rem; color: var(--green); letter-spacing: 3px; margin-bottom: 8px; font-weight: bold; }
+.app-tag { display: inline-block; font-size: 0.65rem; color: var(--green-dark); border: 1px solid var(--green-faint); padding: 2px 8px; letter-spacing: 2px; margin-bottom: 16px; }
+.app-desc { font-size: 0.82rem; color: var(--muted); line-height: 1.8; margin-bottom: 20px; }
+.app-features { list-style: none; margin-bottom: 24px; }
+.app-features li { font-size: 0.78rem; color: var(--green-dark); padding: 3px 0; }
 .app-features li::before { content: '+ '; color: var(--green); }
-.app-link {
-  display: inline-block;
-  font-size: 0.78rem;
-  color: var(--green);
-  text-decoration: none;
-  letter-spacing: 2px;
-  border-bottom: 1px solid var(--green-faint);
-  padding-bottom: 2px;
-  transition: border-color 0.2s;
-}
+.app-link { display: inline-block; font-size: 0.78rem; color: var(--green); text-decoration: none; letter-spacing: 2px; border-bottom: 1px solid var(--green-faint); padding-bottom: 2px; transition: border-color 0.2s; }
 .app-link:hover { border-color: var(--green); }
 .app-link::after { content: ' →'; }
-
-/* Telegram section */
-.telegram-section {
-  background: var(--bg2);
-  border: 1px solid var(--border);
-  border-left: 3px solid #29b6f6;
-  padding: 40px;
-  max-width: 1200px;
-  margin: 0 auto 0;
-  display: flex;
-  align-items: center;
-  gap: 40px;
-  flex-wrap: wrap;
-}
-.telegram-text h3 {
-  font-size: 1.2rem;
-  color: #29b6f6;
-  letter-spacing: 3px;
-  margin-bottom: 8px;
-}
-.telegram-text p {
-  font-size: 0.82rem;
-  color: var(--muted);
-  line-height: 1.8;
-  max-width: 500px;
-}
-.telegram-section .btn-telegram { white-space: nowrap; }
-
-/* Ko-fi */
-.kofi-section {
-  text-align: center;
-  padding: 60px 40px;
-  max-width: 1200px;
-  margin: 0 auto;
-}
-.kofi-section h3 {
-  font-size: 1rem;
-  color: var(--muted);
-  letter-spacing: 3px;
-  margin-bottom: 16px;
-}
-.kofi-section p {
-  font-size: 0.82rem;
-  color: var(--muted);
-  margin-bottom: 24px;
-  line-height: 1.8;
-}
-.btn-kofi {
-  background: #FF5E5B;
-  border: none;
-  color: white;
-  padding: 14px 32px;
-  font-family: monospace;
-  font-size: 0.9rem;
-  letter-spacing: 2px;
-  cursor: pointer;
-  text-decoration: none;
-  display: inline-block;
-  transition: opacity 0.2s;
-}
+.telegram-section { background: var(--bg2); border: 1px solid var(--border); border-left: 3px solid #29b6f6; padding: 40px; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; gap: 40px; flex-wrap: wrap; }
+.telegram-text h3 { font-size: 1.2rem; color: #29b6f6; letter-spacing: 3px; margin-bottom: 8px; }
+.telegram-text p { font-size: 0.82rem; color: var(--muted); line-height: 1.8; max-width: 500px; }
+.kofi-section { text-align: center; padding: 60px 40px; max-width: 1200px; margin: 0 auto; }
+.kofi-section h3 { font-size: 1rem; color: var(--muted); letter-spacing: 3px; margin-bottom: 16px; }
+.kofi-section p { font-size: 0.82rem; color: var(--muted); margin-bottom: 24px; line-height: 1.8; }
+.btn-kofi { background: #FF5E5B; border: none; color: white; padding: 14px 32px; font-family: monospace; font-size: 0.9rem; letter-spacing: 2px; cursor: pointer; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
 .btn-kofi:hover { opacity: 0.85; }
-
-/* Footer */
-footer {
-  border-top: 1px solid var(--border);
-  padding: 32px 40px;
-  text-align: center;
-  font-size: 0.72rem;
-  color: var(--muted);
-  line-height: 2;
-}
+footer { border-top: 1px solid var(--border); padding: 32px 40px; text-align: center; font-size: 0.72rem; color: var(--muted); line-height: 2; }
 footer a { color: var(--muted); text-decoration: none; }
 footer a:hover { color: var(--green); }
-
-/* Animations */
-@keyframes fadeUp {
-  from { opacity: 0; transform: translateY(20px); }
-  to   { opacity: 1; transform: translateY(0); }
-}
-@keyframes blink {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0; }
-}
-
-/* Responsive */
+@keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0; } }
 @media (max-width: 768px) {
   nav { padding: 12px 20px; }
   .nav-links { display: none; }
@@ -434,7 +212,6 @@ footer a:hover { color: var(--green); }
   </div>
 </nav>
 
-<!-- Hero -->
 <section class="hero">
   <p class="hero-tag">Sistema de Inteligencia y Evaluación Geopolítica</p>
   <h1 class="hero-title">SIEG OSINT</h1>
@@ -460,46 +237,25 @@ footer a:hover { color: var(--green); }
   </div>
 </section>
 
-<!-- Stats -->
 <div class="stats">
-  <div class="stat">
-    <span class="stat-num">3</span>
-    <span class="stat-label">Aplicaciones OSINT</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">55</span>
-    <span class="stat-label">Fuentes RSS</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">16</span>
-    <span class="stat-label">Partidos analizados</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">24/7</span>
-    <span class="stat-label">Monitorización</span>
-  </div>
-  <div class="stat">
-    <span class="stat-num">2026</span>
-    <span class="stat-label">Radar electoral</span>
-  </div>
+  <div class="stat"><span class="stat-num">3</span><span class="stat-label">Aplicaciones OSINT</span></div>
+  <div class="stat"><span class="stat-num">55</span><span class="stat-label">Fuentes RSS</span></div>
+  <div class="stat"><span class="stat-num">16</span><span class="stat-label">Partidos analizados</span></div>
+  <div class="stat"><span class="stat-num">24/7</span><span class="stat-label">Monitorización</span></div>
+  <div class="stat"><span class="stat-num">2026</span><span class="stat-label">Radar electoral</span></div>
 </div>
 
-<!-- Apps -->
 <section class="section" id="apps">
   <div class="section-header">
     <p class="section-tag">Aplicaciones</p>
     <h2 class="section-title">Ecosistema OSINT España</h2>
   </div>
   <div class="apps-grid">
-
     <div class="app-card">
       <span class="app-icon">📡</span>
       <div class="app-name">NARRATIVE RADAR</div>
       <span class="app-tag">DESINFORMACIÓN · NARRATIVAS</span>
-      <p class="app-desc">
-        Detección automática de bulos, narrativas coordinadas y desinformación
-        en medios españoles. Análisis de polarización y seguimiento de personajes.
-      </p>
+      <p class="app-desc">Detección automática de bulos, narrativas coordinadas y desinformación en medios españoles. Análisis de polarización y seguimiento de personajes.</p>
       <ul class="app-features">
         <li>Detección de bulos y fake news</li>
         <li>Análisis de narrativas coordinadas</li>
@@ -509,15 +265,11 @@ footer a:hover { color: var(--green); }
       </ul>
       <a href="https://fake-news-narrative.streamlit.app" target="_blank" class="app-link">Abrir aplicación</a>
     </div>
-
     <div class="app-card">
       <span class="app-icon">🛰️</span>
       <div class="app-name">SIEG POLÍTICA NACIONAL</div>
       <span class="app-tag">SENTIMIENTO · LÍDERES · OSINT</span>
-      <p class="app-desc">
-        Vigilancia narrativa de la cobertura mediática de partidos políticos españoles.
-        Análisis de sentimiento, valoración de líderes y comparativa con barómetro CIS.
-      </p>
+      <p class="app-desc">Vigilancia narrativa de la cobertura mediática de partidos políticos españoles. Análisis de sentimiento, valoración de líderes y comparativa CIS.</p>
       <ul class="app-features">
         <li>Análisis de sentimiento por partido</li>
         <li>Valoración mediática de líderes</li>
@@ -527,15 +279,11 @@ footer a:hover { color: var(--green); }
       </ul>
       <a href="https://politica-nacional-osint.streamlit.app" target="_blank" class="app-link">Abrir aplicación</a>
     </div>
-
     <div class="app-card">
       <span class="app-icon">🗳️</span>
       <div class="app-name">ESPAÑA VOTA 2026</div>
       <span class="app-tag">ELECTORAL · ENCUESTAS · 2026</span>
-      <p class="app-desc">
-        Radar electoral para las elecciones españolas 2026. Seguimiento de encuestas,
-        evolución de intención de voto y análisis de tendencias electorales.
-      </p>
+      <p class="app-desc">Radar electoral para las elecciones españolas 2026. Seguimiento de encuestas, evolución de intención de voto y análisis de tendencias electorales.</p>
       <ul class="app-features">
         <li>Agregador de encuestas electorales</li>
         <li>Evolución histórica intención de voto</li>
@@ -545,38 +293,23 @@ footer a:hover { color: var(--green); }
       </ul>
       <a href="https://sieg-radar-electoral.streamlit.app" target="_blank" class="app-link">Abrir aplicación</a>
     </div>
-
   </div>
 </section>
 
-<!-- Telegram -->
 <div class="telegram-section" id="telegram">
   <div class="telegram-text">
     <h3>📢 CANAL TELEGRAM</h3>
-    <p>
-      Recibe automáticamente el briefing diario de Narrative Radar,
-      el resumen de SIEG Política Nacional y alertas de narrativas activas.
-      Publicaciones a las 07:08 y 19:08 cada día.
-    </p>
+    <p>Recibe automáticamente el briefing diario de Narrative Radar, el resumen de SIEG Política Nacional y alertas de narrativas activas. Publicaciones a las 07:08 y 19:08 cada día.</p>
   </div>
-  <a href="https://t.me/sieg_politica" target="_blank" class="btn btn-telegram">
-    Unirse a @sieg_politica
-  </a>
+  <a href="https://t.me/sieg_politica" target="_blank" class="btn btn-telegram">Unirse a @sieg_politica</a>
 </div>
 
-<!-- Ko-fi -->
 <div class="kofi-section">
   <h3>// APOYA EL PROYECTO</h3>
-  <p>
-    SIEG OSINT corre 24/7 en un Odroid C2 desde Murcia.<br>
-    Si te resulta útil, invítame a un café.
-  </p>
-  <a href="https://ko-fi.com/m_castillo" target="_blank" class="btn-kofi">
-    ☕ Buy me a coffee — ko-fi.com/m_castillo
-  </a>
+  <p>SIEG OSINT corre 24/7 en un Odroid C2 desde Madrid.<br>Si te resulta útil, invítame a un café.</p>
+  <a href="https://ko-fi.com/m_castillo" target="_blank" class="btn-kofi">☕ Buy me a coffee — ko-fi.com/m_castillo</a>
 </div>
 
-<!-- Footer -->
 <footer>
   <p>
     <strong style="color: var(--green); letter-spacing: 3px">SIEG OSINT España</strong><br>
